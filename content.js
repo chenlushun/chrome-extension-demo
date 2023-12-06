@@ -1,18 +1,13 @@
 $(function () {
-    // 读取sku的图片
+     // 读取sku的图片
     const skuList = $('.detail-gallery-img');
-    const skuImgList = new Array(skuList.length)
     for (let i = 0; i < skuList.length; i++) {
-        skuImgList.join(skuList[i].src)
         download(skuList[i].src, '窗口' + i + '.jpg')
     }
     const detailList = $('.content-detail img');
-    const detailImgList = new Array(detailList.length)
-    for (let i = 0; i < detailImgList.length; i++) {
-        detailImgList.join(detailList[i].src)
-        download(skuList[i].src, '详情' + i + '.jpg')
+    for (let i = 0; i < detailList.length; i++) {
+        download($(detailList[i]).attr('data-lazyload-src'), '详情' + i + '.jpg')
     }
-    console.log(img)
 })
 
 //下载
